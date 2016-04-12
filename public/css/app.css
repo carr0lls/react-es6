@@ -1,0 +1,35 @@
+	* {
+		box-sizing: border-box;
+		font-size: 14px;		
+		font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	}
+	input, textarea, select {
+		font-weight: 200;
+	}
+
+	.comment {
+		border: 1px solid grey;
+		border-radius: 5px;
+		padding: 10px;
+		margin-bottom: 10px;
+	}
+	.comment h3 {
+		border-bottom: 1px solid grey;
+	}
+
+	.comment-form textarea,
+	.comment-form input {
+		display: block;
+		border: 1px solid #000;
+		border-radius: 5px;
+		margin-bottom: 8px;
+	}
+
+	.comment-form textarea {
+		width: 50%;
+		height: 100px;
+	}
+	.comment-form input {
+		width: 20%;
+		height: 24px;
+	}
