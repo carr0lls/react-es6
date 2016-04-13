@@ -1,4 +1,5 @@
 import React from 'react'
+import $ from 'jquery'
 import { CommentList, CommentForm } from '../../components'
 
 	export default class CommentBox extends React.Component {
