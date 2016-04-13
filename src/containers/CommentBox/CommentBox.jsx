@@ -1,5 +1,5 @@
 import React from 'react'
-import { CommentList, CommentForm } from '../components'
+import { CommentList, CommentForm } from '../../components'
 
 	export default class CommentBox extends React.Component {
 		constructor(props) {

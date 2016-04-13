@@ -10,8 +10,6 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _containers = require('./containers');
 
-var _containers2 = _interopRequireDefault(_containers);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_containers2.default, { url: '/api/comments', pollInterval: 3000 }), document.getElementById('content'));
+_reactDom2.default.render(_react2.default.createElement(_containers.CommentBox, { url: '/api/comments', pollInterval: 3000 }), document.getElementById('content'));
