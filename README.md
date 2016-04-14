@@ -31,4 +31,10 @@ php server.php
 
 And visit <http://localhost:4000/>. Try opening multiple tabs!
 
+### Run Server
+```sh
+// Reload dummy data/comments
+node seed.js
+```
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
