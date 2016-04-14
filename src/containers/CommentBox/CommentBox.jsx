@@ -5,7 +5,7 @@ import { CommentList, CommentForm } from '../../components'
 	export default class CommentBox extends React.Component {
 		constructor(props) {
 			super(props)
-			this.state = { comments: [] }
+			this.state = {comments: []}
 			this.api = {url: this.props.url, refresh: this.props.pollInterval}			
 
 			this.submitComment = this.submitComment.bind(this)
