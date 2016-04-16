@@ -19,7 +19,7 @@ import { CommentList, CommentForm } from '../../components'
 				success: (data) => {
 					this.setState({comments: data})
 				}
-			})			
+			})
 		}
 		submitComment(commentData) {
 			$.ajax({
@@ -33,10 +33,8 @@ import { CommentList, CommentForm } from '../../components'
 			})
 		}		
 
-		componentWillMount() {
-			this.loadComments()
-		}
 		componentDidMount() {
+			this.loadComments()			
 			setInterval(this.loadComments, this.api.refresh)
 		}
 
