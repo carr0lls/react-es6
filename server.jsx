@@ -7,17 +7,15 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import Html from './dist/helpers/Html'
 
-var app = express(), handlebars;
+var app = express();
+var handlebars = exphbr.create({extname: '.html'});
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 
 app.set('port', (process.env.PORT || 4000));
-
 app.use('/', express.static(path.join(__dirname, 'public')));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-handlebars = exphbr.create({extname: '.html'});
 app.engine('html', handlebars.engine);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
@@ -29,12 +27,9 @@ app.get('/', function(req, res) {
 
 // Server-side and client-side rendering of comments
 app.get('/comments', function(req, res) {
-  res.setHeader('Content-Type', 'text/html');
-
   fs.readFile(COMMENTS_FILE, function(err, data) {
-    var comments = JSON.parse(data);
     var containerData = {
-      data: comments,
+      data: JSON.parse(data),
       url: '/api/comments',
       pollInterval: 5000
     };
