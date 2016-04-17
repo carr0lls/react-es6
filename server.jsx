@@ -5,7 +5,7 @@ import bodyParser from 'body-parser'
 import exphbr from 'express-handlebars'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
-import { CommentBox } from './dist/containers'
+import Html from './dist/helpers/Html'
 
 var app = express(), handlebars;
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
@@ -33,24 +33,12 @@ app.get('/comments', function(req, res) {
 
   fs.readFile(COMMENTS_FILE, function(err, data) {
     var comments = JSON.parse(data);
-    var props = {
+    var containerData = {
       data: comments,
       url: '/api/comments',
       pollInterval: 5000
     };
-    var html = ReactDOMServer.renderToStaticMarkup(
-      <body>
-        <h1>COMMENTS (server and client-side rendering)</h1>
-        <div id="content" dangerouslySetInnerHTML={{__html:
-          ReactDOMServer.renderToString(<CommentBox url={props.url} data={props.data} pollInterval={props.pollInterval} />)
-        }} />
-
-        <script dangerouslySetInnerHTML={{__html:
-        'var APP_PROPS = ' + JSON.stringify(props) + ';'
-        }}/>
-        <script src="scripts/bundle.js"/>
-      </body>
-    );
+    var html = ReactDOMServer.renderToStaticMarkup(<Html containerData={containerData} />);
 
     res.end(html);
   });
