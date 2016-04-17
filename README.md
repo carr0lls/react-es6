@@ -2,34 +2,42 @@
 
 This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html) but rewritten in ES6 using Babel as a transpiler and webpack to manage client-side modules.
 
-## To use
+## To run
 
 ```sh
 npm install
 
-// Transpile ES6 to ES5 and build client-side files
-babel src -d dist (Add -w flag for continuous dev build)
+// Transpile server and client-side files from ES6 to ES5 and bundle scripts
+npm run build
 
-// Bundle scripts
-webpack dist/app.js public/scripts/bundle.js (Add -w flag for continuous dev build)
-
-// Transpile ES6 to ES5 and build server file
-babel server.jsx -o server.js (Add -w flag for continuous dev build)
-```
-
-### Run Server
-
-```sh
-// The server serves static files from `public/` and handle requests to `/api/comments` to fetch or add data.
-node server.js
+// Start server
+npm start
 ```
 
 And visit <http://localhost:4000/>. Try opening multiple tabs!
 
-### Run Server
+## To run in dev-mode
+
+```sh
+npm install
+
+// Watch and transpile client-side files from ES6 to ES5
+npm run watch-client
+
+// Watch and transpile server file from ES6 to ES5
+npm run watch-server
+
+// Watch and bundle scripts
+npm run watch-scripts
+
+// Watch and start server
+nodemon
+```
+
+### Reset Database
 ```sh
 // Reload dummy data/comments
-node seed.js
+npm run reset-db
 ```
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
