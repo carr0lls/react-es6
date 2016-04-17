@@ -1,5 +1,6 @@
 *~
+dist
 node_modules
-public
-.DS_Store
+public/scripts/bundle.js
 comments.json
+.DS_Store

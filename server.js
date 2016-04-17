@@ -28,7 +28,7 @@ var _server = require('react-dom/server');
 
 var _server2 = _interopRequireDefault(_server);
 
-var _containers = require('./public/js/containers');
+var _containers = require('./dist/containers');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -74,7 +74,7 @@ app.get('/comments', function (req, res) {
       } }),
     _react2.default.createElement('script', { dangerouslySetInnerHTML: { __html: 'var APP_PROPS = ' + JSON.stringify(props) + ';'
       } }),
-    _react2.default.createElement('script', { src: 'js/bundle.js' })
+    _react2.default.createElement('script', { src: 'scripts/bundle.js' })
   ));
   res.end(html);
 });

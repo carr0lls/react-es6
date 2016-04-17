@@ -8,10 +8,10 @@ This is the React comment box example from [the React tutorial](http://facebook.
 npm install
 
 // Transpile ES6 to ES5 and build client-side files
-babel src --out-dir public/js (Add --watch flag for continuous dev build)
+babel src --out-dir dist (Add --watch flag for continuous dev build)
 
 // Bundle scripts
-webpack public/js/app.js public/js/bundle.js (Add --watch flag for continuous dev build)
+webpack dist/app.js public/scripts/bundle.js (Add --watch flag for continuous dev build)
 
 // Transpile ES6 to ES5 and build server file
 babel server.jsx --out-file server.js (Add --watch flag for continuous dev build)

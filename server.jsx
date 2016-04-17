@@ -5,7 +5,7 @@ import bodyParser from 'body-parser'
 import exphbr from 'express-handlebars'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
-import { CommentBox } from './public/js/containers'
+import { CommentBox } from './dist/containers'
 
 var app = express(), handlebars;
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
@@ -46,7 +46,7 @@ app.get('/comments', function(req, res) {
       <script dangerouslySetInnerHTML={{__html:
       'var APP_PROPS = ' + JSON.stringify(props) + ';'
       }}/>
-      <script src="js/bundle.js"/>
+      <script src="scripts/bundle.js"/>
     </body>
   );
   res.end(html);
