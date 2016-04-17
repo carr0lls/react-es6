@@ -1,7 +1,7 @@
 {
   "name": "react-tutorial",
   "version": "0.0.0",
-  "description": "Code from the React tutorial.",
+  "description": "ES6 version of code from the React tutorial.",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.4.3",
@@ -19,7 +19,14 @@
     "webpack": "^1.12.15"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist && babel server.jsx -o server.js && webpack dist/app.js public/scripts/bundle.js",
+    "build-client": "babel src -d dist",
+    "build-server": "babel server.jsx -o server.js",
+    "build-scripts": "webpack dist/app.js public/scripts/bundle.js",
+    "watch-client": "babel src -w -d dist",
+    "watch-server": "babel server.jsx -w -o server.js",
+    "watch-scripts": "webpack dist/app.js -w public/scripts/bundle.js",
+    "reset-db": "node seed.js",
     "start": "node server.js"
   },
   "repository": {

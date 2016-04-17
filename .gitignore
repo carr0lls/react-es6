@@ -4,3 +4,4 @@ node_modules
 public/scripts/bundle.js
 comments.json
 .DS_Store
+server.js
