@@ -5,8 +5,8 @@ import { CommentList, CommentForm } from '../../components'
 	export default class CommentBox extends React.Component {
 		constructor(props) {
 			super(props)
-			this.state = {comments: []}
-			this.api = {url: this.props.url, refresh: this.props.pollInterval}			
+			this.state = {comments: props.data}
+			this.api = {url: props.url, refresh: props.pollInterval}
 
 			this.submitComment = this.submitComment.bind(this)
 			this.loadComments = this.loadComments.bind(this)
@@ -31,10 +31,9 @@ import { CommentList, CommentForm } from '../../components'
 					this.setState({comments: data})
 				}
 			})
-		}		
+		}
 
 		componentDidMount() {
-			this.loadComments()			
 			setInterval(this.loadComments, this.api.refresh)
 		}
 

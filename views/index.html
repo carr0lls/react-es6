@@ -15,6 +15,13 @@
     <h1>INDEX (client-side rendering only)</h1>
     <div id="content"></div>
     <!-- <script type="text/babel" src="js/example.js"></script> -->
+    <script>
+      var APP_PROPS = {
+        data: [],
+        url: '/api/comments',
+        pollInterval: 3000
+      };
+    </script>
     <script type="text/javascript" src="scripts/bundle.js"></script>
   </body>
 </html>

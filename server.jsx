@@ -31,25 +31,29 @@ app.get('/', function(req, res) {
 app.get('/comments', function(req, res) {
   res.setHeader('Content-Type', 'text/html');
 
-  var props = {
-    url: '/api/comments',
-    pollInterval: 3000
-  };
+  fs.readFile(COMMENTS_FILE, function(err, data) {
+    var comments = JSON.parse(data);
+    var props = {
+      data: comments,
+      url: '/api/comments',
+      pollInterval: 5000
+    };
+    var html = ReactDOMServer.renderToStaticMarkup(
+      <body>
+        <h1>COMMENTS (server and client-side rendering)</h1>
+        <div id="content" dangerouslySetInnerHTML={{__html:
+          ReactDOMServer.renderToString(<CommentBox url={props.url} data={props.data} pollInterval={props.pollInterval} />)
+        }} />
 
-  var html = ReactDOMServer.renderToStaticMarkup(
-    <body>
-      <h1>COMMENTS (server and client-side rendering)</h1>
-      <div id="content" dangerouslySetInnerHTML={{__html:
-        ReactDOMServer.renderToString(<CommentBox url={props.url} pollInterval={props.pollInterval} />)
-      }} />
+        <script dangerouslySetInnerHTML={{__html:
+        'var APP_PROPS = ' + JSON.stringify(props) + ';'
+        }}/>
+        <script src="scripts/bundle.js"/>
+      </body>
+    );
 
-      <script dangerouslySetInnerHTML={{__html:
-      'var APP_PROPS = ' + JSON.stringify(props) + ';'
-      }}/>
-      <script src="scripts/bundle.js"/>
-    </body>
-  );
-  res.end(html);
+    res.end(html);
+  });
 });
 
 app.get('/api/comments', function(req, res) {
