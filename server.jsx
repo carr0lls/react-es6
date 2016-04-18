@@ -17,8 +17,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Server-side and client-side rendering of comments
 app.get('/', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
+    data = data ? JSON.parse(data) : [];
     var containerData = {
-      data: JSON.parse(data),
+      data: data,
       url: '/api/comments',
       pollInterval: 5000
     };
@@ -30,14 +31,15 @@ app.get('/', function(req, res) {
 
 app.get('/api/comments', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
+    data = data ? JSON.parse(data) : [];
     res.setHeader('Cache-Control', 'no-cache');
-    res.json(JSON.parse(data));
+    res.json(data);
   });
 });
 
 app.post('/api/comments', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
-    var comments = JSON.parse(data);
+    var comments = data ? JSON.parse(data) : [];
     comments.push(req.body);
     fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function(err) {
       res.setHeader('Cache-Control', 'no-cache');
