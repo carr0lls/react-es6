@@ -9,7 +9,7 @@ import { CommentBox } from '../containers'
       return (
         <html>
           <head>
-            <meta charset="utf-8" />
+            <meta charSet="utf-8" />
             <title>React Tutorial</title>
             <link rel="stylesheet" href="css/app.css" />
           </head>
