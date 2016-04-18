@@ -31,7 +31,7 @@ npm run watch-server
 npm run watch-scripts
 
 // Watch and start server
-nodemon
+npm run watch-start
 ```
 
 ### Reset Database
