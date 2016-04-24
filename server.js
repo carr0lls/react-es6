@@ -4,7 +4,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
-import Html from './dist/helpers/Html'
+import Html from './src/helpers/Html'
 
 var app = express();
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');

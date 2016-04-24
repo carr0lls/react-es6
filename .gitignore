@@ -1,6 +1,5 @@
-dist
 node_modules
 public/scripts/bundle.js
 comments.json
-server.js
+server.bundle.js
 .DS_Store

@@ -22,22 +22,19 @@ And visit <http://localhost:4000/>. Try opening multiple tabs!
 npm install
 
 // Watch and transpile client-side files from ES6 to ES5
-npm run watch-client
+npm run watch:client
 
 // Watch and transpile server file from ES6 to ES5
-npm run watch-server
-
-// Watch and bundle scripts
-npm run watch-scripts
+npm run watch:server
 
 // Watch and start server
-npm run watch-start
+npm run watch:start
 ```
 
 ### Reset Database
 ```sh
 // Reload dummy data/comments
-npm run reset-db
+npm run resetdb
 ```
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
