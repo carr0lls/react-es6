@@ -1,6 +1,6 @@
 # React Tutorial (in ES6)
 
-This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html) but rewritten in ES6 using Babel as a transpiler and webpack to manage client-side modules.
+This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html) but rewritten in ES6 using Babel as a transpiler and webpack to manage and bundle server-side and client-side modules.
 
 ## To run
 
@@ -24,7 +24,7 @@ npm install
 // Watch and transpile client-side files from ES6 to ES5
 npm run watch:client
 
-// Watch and transpile server file from ES6 to ES5
+// Watch and transpile server-side files from ES6 to ES5
 npm run watch:server
 
 // Watch and start server
